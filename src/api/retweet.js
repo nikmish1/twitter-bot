@@ -31,7 +31,10 @@ const retweet = () => {
         if (!isReply(data.statuses[rando])) {
           retweetId = data.statuses[rando].id_str
         }
-
+        console.log("retweet id:", retweetId)
+        if(!retweetId) {console.log("retweet id is blank!!! trying again"); retweet(); }
+   
+        retweetId
         bot.post(
           'statuses/retweet/:id',
           {
@@ -39,6 +42,7 @@ const retweet = () => {
           },
           (err, response) => {
             if (err) {
+              console.log("err---->", err)
               console.lol('ERRORDERP: Retweet!')
             }
             console.lol(

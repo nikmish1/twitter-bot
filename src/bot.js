@@ -17,11 +17,12 @@ console.rofl('Bot starting...')
 
 // retweet on keywords
 retweet()
-setInterval(retweet, config.twitterConfig.retweet)
+//setInterval(retweet, config.twitterConfig.retweet)
+setInterval(retweet ,12*60*60*1000)
 
 // reply to new follower
-const userStream = bot.stream('user')
-userStream.on('follow', reply)
+// const userStream = bot.stream('user')
+// userStream.on('follow', reply)
 
 // This will allow the bot to run on now.sh
 const server = createServer((req, res) => {
